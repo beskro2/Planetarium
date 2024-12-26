@@ -6,11 +6,7 @@ import io.cucumber.java.en.When;
 
 public class DeletePlanetSteps {
 
-    @Given("the user is on the home page")
-    public void the_user_is_on_the_home_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+
 
     @When("the user provides a valid delete planet name")
     public void the_user_provides_a_valid_delete_planet_name() {

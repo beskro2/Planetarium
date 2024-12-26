@@ -7,19 +7,19 @@ Feature: login to application
 
   Scenario: Users can login with valid credentials
     When the user provides a valid login username
-    And the user provides a valid longin password
-    And the user submits the longin credentials
+    And the user provides a valid login password
+    And the user submits the login credentials
     Then The user will be directed to the home page
 
    @SR3
     Scenario Outline: Users can not login with invalid credential
-      When the user provides login username "<username input>"
+      When the user provides login username "<username>"
       And the user provides login password "<password>"
       And the user submits the login credentials
-      Then the user should get a browser login alert saying"<Invalid Credentials>"
+      Then the user should get a browser login alert saying "<alert>"
 
 Examples:
-      |username |password         |allert                     |
+      |username |password         |alert                     |
       |Batman   |bOTs             |Invalid Credentials alert  |
       |Robin    |Iamthenight1939  |Invalid Credentials alert  |
       |Robin    |Bots             |Invalid Credentials alert  |

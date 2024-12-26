@@ -4,24 +4,25 @@
 
     Background: start page
       Given the user is on the home page
+      And The Moon is selected
 
-      Scenario:
+    Scenario: User can add moons with valid data
         When User provides a valid add moon name
-        And user provides a valid planet ID
-        * And the user provides a moon picture
+        And user provides a valid associated planet
+#        * And the user provides a moon picture
         And the user submits the add moon criteria
         Then the user should view the Moon from the home page
 
     @MR1 @MR2 @MR3 @MR4 @MR7
-    Scenario Outline:
-      When the user provides add moon name <"moon name">
-      And the user provides planetID <"planetID">
-      * And the user provides a moon picture<"picture">
+    Scenario Outline:User can not add new moons with invalid data
+      When the user provides add moon name "<moonname>"
+      And the user provides associatedPlanet "<associatedPlanet>"
+#      And the user provides a moon picture "<Image>"
       And the user submits the add moon criteria
       Then the user should get a add moon browser alert saying "<alert>"
-
+#*? for the moon pic mabe solution is two scenerio outlines one with the image and one without
       Examples:
-      | Moon Name                                   | Planate Name             | Image | alert                                        |
+      | moonname                                    | associatedPlanet         | Image | alert                                        |
       | gandalffrodosamlegolisegimliborimirearigorn | frodo                    |       |  Browser Alert Message: Invalid Moon Name    |
       |                                             | frodo                    |       |  Browser Alert Message: Invalid Moon Name    |
       | Saurumon#@!                                 | frodo                    |       |  Browser Alert Message: Invalid Moon Name    |

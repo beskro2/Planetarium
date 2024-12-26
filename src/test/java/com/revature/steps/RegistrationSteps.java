@@ -9,12 +9,13 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static com.revature.TestRunner.driver;
+
 public class RegistrationSteps {
 
     @Given("the user is on the login page")
     public void the_user_is_on_the_login_page() {
         TestRunner.loginPage.openLoginPage();
-
     }
 
     @Given("the user clicks the register link")
@@ -33,6 +34,10 @@ public class RegistrationSteps {
             TestRunner.registrationPage.enterPassword("Krypton-was_2000");
         }
 
+    @When("the user submits the credentials")
+    public void the_user_submits_the_credentials() {
+        TestRunner.registrationPage.clickCreateButton();
+    }
 
     @When("the user provides username {string}")
     public void the_user_provides_username(String username) {
@@ -45,22 +50,22 @@ public class RegistrationSteps {
 
     @Then("the user should get a browser alert saying {string}")
     public void the_user_should_get_a_browser_alert_saying(String expectedMessage) {
-      TestRunner.wait.until(ExpectedConditions.alertIsPresent());
-      Alert alert = TestRunner.driver.switchTo().alert();
-      Assert.assertEquals(expectedMessage, alert.getText());
-      alert.accept();
+        TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = TestRunner.driver.switchTo().alert();
+        Assert.assertEquals(expectedMessage, alert.getText());
+        alert.accept();
     }
 
     @Then("the user should be redirected to the login page")
     public void the_user_should_be_redirected_to_the_login_page() {
       TestRunner.wait.until(ExpectedConditions.not(ExpectedConditions.titleIs("Account Creation")));
-      Assert.assertEquals("planetarium Login", TestRunner.driver.getTitle());
+      Assert.assertEquals("Planetarium Login", driver.getTitle());
     }
 
 
 
     @Then("the user should stay on the registration page")
     public void the_user_should_stay_on_the_registration_page() {
-       Assert.assertEquals("account Creation", TestRunner.driver.getTitle());
+       Assert.assertEquals("Account Creation", driver.getTitle());
     }
 }

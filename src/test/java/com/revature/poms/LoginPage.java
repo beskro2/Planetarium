@@ -25,6 +25,17 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
+    public void enterLoginUsername(String username){
+        usernameInput.sendKeys(username);
+    }
+
+    public void enterLoginPassword(String password) {
+        passwordInput.sendKeys(password);
+    }
+    public void clickSubmit(){
+        loginButton.click();
+    }
+
     public void setUpLoggedInUser(){
         driver.get("http://localhost:8080/");
         usernameInput.sendKeys("Batman");

@@ -17,7 +17,7 @@
           Then the user should get a delete moon browser alert saying "<alert>"
 
           Examples:
-          |name            |alert                                    |
+          |name            |alert             |
           |                |Invalid moon name |
           |notamoon        |Invalid moon name |
           |Someoneelsesmoon|Invalid moon name |

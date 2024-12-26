@@ -16,7 +16,7 @@ import java.time.Duration;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "classpath:features/AddPlanates.feature",
+        features = "classpath:features",
         glue = "com.revature.steps",
         plugin = {
                 "pretty",
@@ -36,7 +36,7 @@ public class TestRunner {
     public static void setup(){
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         registrationPage = new RegistrationPage(driver);

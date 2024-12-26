@@ -18,9 +18,8 @@ public class AddMoonSteps {
 
     @Given("the user is on the home page")
     public void the_user_is_on_the_home_page() {
-      TestRunner.loginPage.setUpLoggedInUser();
+        TestRunner.loginPage.setUpLoggedInUser();
     }
-
 
     @Given("The Moon is selected")
     public void the_moon_is_selected(){
@@ -55,7 +54,7 @@ public class AddMoonSteps {
 
     @Then("the user should view the Moon from the home page")
     public void the_user_should_view_the_Moon_from_the_home_page()  {
-        TestRunner.wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tr[5]")));
+        TestRunner.wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tr[6]")));
         Assert.assertEquals(5, TestRunner.homePage.getNumberOfCelestialRows());
     }
 
@@ -80,9 +79,14 @@ public class AddMoonSteps {
     }
 
 
-    @When("the user provides a delete moon name  {string}")
-    public void theUserProvidesADeleteMoonName(String MoonName) {
-        TestRunner.homePage.enterMoonName(MoonName);
+    @When("the user provides add moon name {string}")
+    public void theUserProvidesAddMoonName(String moonName ) {
+        TestRunner.homePage.enterMoonName(moonName);
+    }
+
+    @When("the user provides a moon picture")
+    public void the_user_provides_a_moon_picture() {
+      TestRunner.homePage.entermoonimage("C:\\Users\\eskro\\OneDrive\\Desktop\\Testing project 1\\Planetarium_Project\\earth-blue-planet-globe-planet-87651.jpeg");
     }
 
 

@@ -1,6 +1,7 @@
 package com.revature.steps;
 
 import com.revature.TestRunner;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -37,16 +38,8 @@ public class AddPlanetSteps {
 
     @Then("a new planet is added")
     public void a_new_planet_is_added()  {
-        TestRunner.wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tr[5]")));
+        TestRunner.wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tr[6]")));
        Assert.assertEquals(5, TestRunner.homePage.getNumberOfCelestialRows());
-    }
-
-
-
-    @When("And the user provides a planet image  <\"image\">")
-    public void and_the_user_provides_a_planet_image_image() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
 
     @Then("a user should get a add planet browser alert saying {string}")
@@ -60,5 +53,19 @@ public class AddPlanetSteps {
     @When("the user provides a add planet name {string}")
     public void theUserProvidesAAddPlanetName(String planetName) {
         TestRunner.homePage.enterPlanetName(planetName);
+    }
+
+    @And("the user provides a valid planet file type")
+    public void theUserProvidesAValidPlanetFileType() {
+        TestRunner.homePage.enterplanetimage("C:\\Users\\eskro\\OneDrive\\Desktop\\Testing project 1\\Planetarium_Project\\earth-blue-planet-globe-planet-87651.jpeg");
+        
+    }
+
+    @And("the user provides a planet image  <{string}>")
+    public void theUserProvidesAPlanetImage(String expectedMessage) {
+        TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = TestRunner.driver.switchTo().alert();
+        Assert.assertEquals(expectedMessage, alert.getText());
+        alert.accept();
     }
 }

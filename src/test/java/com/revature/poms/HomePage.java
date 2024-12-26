@@ -42,8 +42,6 @@ public class HomePage {
    @FindBy(tagName = "tr")
     private List<WebElement> tableRows;
 
-//    @FindBy(css = "#celestialTable tbody tr")
-//    private List<WebElement> tableRows;
 
 
     @FindBy(id = "deleteButton")
@@ -52,7 +50,11 @@ public class HomePage {
     @FindBy(id = "planetNameInput")
     private WebElement planetNameInput;
 
+    @FindBy(id = "moonImageInput")
+    private WebElement moonFileInput;
 
+    @FindBy(id = "planetImageInput")
+    private WebElement planetFileInput;
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -117,6 +119,12 @@ public class HomePage {
         logoutButton.click();
     }
 
+    public void entermoonimage(String url) {
+        moonFileInput.sendKeys(url);
+    }
+    public void enterplanetimage(String url) {
+        planetFileInput.sendKeys(url);
+    }
 
 
 }

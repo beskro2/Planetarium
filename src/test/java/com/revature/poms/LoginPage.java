@@ -33,7 +33,7 @@ public class LoginPage {
         passwordInput.sendKeys(password);
     }
     public void clickSubmit(){
-        loginButton.click();
+        loginButton.submit();
     }
 
     public void setUpLoggedInUser(){

@@ -33,8 +33,8 @@ public class LoginSteps {
 
     @Then("The user will be directed to the home page")
     public void the_user_will_be_directed_to_the_home_page() {
-        TestRunner.wait.until(ExpectedConditions.not(ExpectedConditions.titleIs("Welcome to the Home Page Batman")));
-        Assert.assertEquals("Welcome to the Home Page Batman", driver.getTitle());
+        TestRunner.wait.until(ExpectedConditions.not(ExpectedConditions.titleIs("Planetarium Login")));
+        Assert.assertEquals("Home", driver.getTitle());
     }
 
     @When("the user provides login username {string}")
@@ -47,14 +47,14 @@ public class LoginSteps {
        TestRunner.loginPage.enterLoginPassword(password);
     }
 
-    @Then("the user should get a browser login alert saying {alert}")
-        public void the_user_should_get_a_browser_login_alert_saying(String expectedMessage){
-            TestRunner.wait.until(ExpectedConditions.alertIsPresent());
-            Alert alert = TestRunner.driver.switchTo().alert();
-            Assert.assertEquals(expectedMessage, alert.getText());
-            alert.accept();
-        }
 
+    @Then("the user should get a browser login alert saying {string}")
+    public void theUserShouldGetABrowserLoginAlertSaying(String expectedMessage) {
+        TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = TestRunner.driver.switchTo().alert();
+        Assert.assertEquals(expectedMessage, alert.getText());
+        alert.accept();
     }
+}
 
 

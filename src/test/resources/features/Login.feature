@@ -19,8 +19,8 @@ Feature: login to application
       Then the user should get a browser login alert saying "<alert>"
 
 Examples:
-      |username |password         |alert                     |
-      |Batman   |bOTs             |Invalid Credentials alert  |
-      |Robin    |Iamthenight1939  |Invalid Credentials alert  |
-      |Robin    |Bots             |Invalid Credentials alert  |
+      |username |password         |alert                 |
+      |Batman   |bOTs             |Invalid credentials   |
+      |Robin    |Iamthenight1939  |Invalid credentials   |
+      |Robin    |Bots             |Invalid credentials   |
 

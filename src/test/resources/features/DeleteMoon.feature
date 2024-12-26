@@ -12,12 +12,12 @@
 
         @MR1 @MR4 @SR2
         Scenario Outline: User can not delete moon with invalid credentials
-          When the user provides a delete moon name  <"name">
+          When the user provides a delete moon name "<name>"
           And the user submits the delete moon criteria
-          Then the user should get a delete moon browser alert saying <"alert">
+          Then the user should get a delete moon browser alert saying "<alert>"
 
           Examples:
-          |Moon name       |Alert                                    |
+          |name            |alert                                    |
           |                |Browser Alert Message: Invalid Moon name |
           |notamoon        |Browser Alert Message: Invalid Moon name |
           |Someoneelsesmoon|Browser Alert Message: Invalid Moon name |

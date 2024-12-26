@@ -8,11 +8,15 @@ import org.openqa.selenium.support.FindBy;
 
 import org.openqa.selenium.support.ui.Select;
 
+import java.time.Duration;
 import java.util.List;
 
 public class HomePage {
     private WebDriver driver;
 
+
+    @FindBy(id = "deleteInput")
+    private WebElement deleteObjectInput;
 
     @FindBy(id = "moonImageInput")
     private WebElement photoButton;
@@ -35,9 +39,18 @@ public class HomePage {
     @FindBy(id = "logoutButton")
     private WebElement logoutButton;
 
-    @FindBy(tagName = "tr")
+   @FindBy(tagName = "tr")
     private List<WebElement> tableRows;
 
+//    @FindBy(css = "#celestialTable tbody tr")
+//    private List<WebElement> tableRows;
+
+
+    @FindBy(id = "deleteButton")
+    private WebElement deleteButton;
+
+    @FindBy(id = "planetNameInput")
+    private WebElement planetNameInput;
 
 
 
@@ -45,10 +58,16 @@ public class HomePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-//check this works
-    public void getSelectionType(){
+
+
+    public void SelectMoonType(){
         Select select = new Select(selectElement);
         select.selectByIndex(0);
+    }
+
+    public void SelectPlanetType(){
+        Select select = new Select(selectElement);
+        select.selectByIndex(1);
     }
 
     public void enterImage(String imageName){
@@ -60,12 +79,25 @@ public class HomePage {
         moonNameInput.sendKeys(moonName);
     }
 
+    public void enterdeleteobjectname(String objectName){
+        deleteObjectInput.sendKeys(objectName);
+    }
+
+
     public void enterAssociatedPlanet(String associatedPlanet){
         associatedPlanetInput.sendKeys(associatedPlanet);
     }
 
+    public void enterPlanetName(String planetName){
+        planetNameInput.sendKeys(planetName);
+    }
+
     public void clicksubmit(){
         submitButton.click();
+    }
+
+    public void clickdelete(){
+        deleteButton.click();
     }
 
     public String getHomePageGreeting(){
@@ -73,6 +105,7 @@ public class HomePage {
     }
 
     public int getNumberOfCelestialRows(){
+
         return tableRows.size()-1;
     }
 
@@ -83,5 +116,7 @@ public class HomePage {
     public void logout(){
         logoutButton.click();
     }
+
+
 
 }

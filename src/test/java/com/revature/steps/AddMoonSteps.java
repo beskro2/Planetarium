@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -54,7 +55,7 @@ public class AddMoonSteps {
 
     @Then("the user should view the Moon from the home page")
     public void the_user_should_view_the_Moon_from_the_home_page()  {
-
+        TestRunner.wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tr[5]")));
         Assert.assertEquals(5, TestRunner.homePage.getNumberOfCelestialRows());
     }
 
@@ -85,7 +86,5 @@ public class AddMoonSteps {
     }
 
 
-    @When("the user provides a delete moon name  {string}")
-    public void theUserProvidesADeleteMoonName(String arg0) {
-    }
+
 }

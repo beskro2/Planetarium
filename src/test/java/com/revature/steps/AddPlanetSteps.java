@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AddPlanetSteps {
@@ -36,6 +37,7 @@ public class AddPlanetSteps {
 
     @Then("a new planet is added")
     public void a_new_planet_is_added()  {
+        TestRunner.wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tr[5]")));
        Assert.assertEquals(5, TestRunner.homePage.getNumberOfCelestialRows());
     }
 

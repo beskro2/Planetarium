@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DeleteMoonSteps {
@@ -23,26 +24,24 @@ public class DeleteMoonSteps {
 
     @Then("the moon will be deleted from the homepage")
     public void the_moon_will_be_deleted_from_the_homepage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+     TestRunner.wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tr[3]")));
+     Assert.assertEquals(3,TestRunner.homePage.getNumberOfCelestialRows());
     }
 
-    @When("the user provides a delete moon name {name}")
-    public void the_user_provides_a_delete_moon_name_name() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("the user provides a delete moon name {string}")
+    public void the_user_provides_a_delete_moon_name(String moonName) {
+        TestRunner.homePage.enterdeleteobjectname(moonName);
     }
+
 
     @Then("the user should get a delete moon browser alert saying {string}")
-    public void theUserShouldGetADeleteMoonBrowserAlertSaying(String expectedMessage) {
+    public void the_user_should_get_a_delete_moon_browser_alert_saying(String expectedMessage) {
         TestRunner.wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = TestRunner.driver.switchTo().alert();
         Assert.assertEquals(expectedMessage, alert.getText());
         alert.accept();
     }
 
-    @When("the user provides a delete moon name {string}")
-    public void theUserProvidesADeleteMoonName(String arg0) {
-    }
+
 }
 

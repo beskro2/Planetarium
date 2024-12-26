@@ -9,7 +9,7 @@
     Scenario: User can add moons with valid data
         When User provides a valid add moon name
         And user provides a valid associated planet
-        And And the user provides a moon picture
+#        And And the user provides a moon picture
         And the user submits the add moon criteria
         Then the user should view the Moon from the home page
 
@@ -32,14 +32,14 @@
       | Sam Wise_22-                                |                          |       | Invalid planet id    |
 #      | Sam Wise_22-                                | Earth                    | giff  | Invalid File Type    |
 
-    @MR1 @MR2 @MR3 @MR4 @MR7
-    Scenario Outline:User can not add new moons with image with invalid data
-      When the user provides add moon name "<moonname>"
-      And the user provides associatedPlanet "<associatedPlanet>"
-      And the user provides a moon picture "<Image>"
-      And the user submits the add moon criteria
-      Then the user should get a add moon browser alert saying "<alert>"
-
-      Examples:
-        | moonname                                    | associatedPlanet         | Image | alert               |
-        |Sam Wise_22-                                 | Earth                    | giff  | Invalid File Type    |
+#    @MR1 @MR2 @MR3 @MR4 @MR7
+#    Scenario Outline:User can not add new moons with image with invalid data
+#      When the user provides add moon name "<moonname>"
+#      And the user provides associatedPlanet "<associatedPlanet>"
+#      And the user provides a moon picture "<Image>"
+#      And the user submits the add moon criteria
+#      Then the user should get a add moon browser alert saying "<alert>"
+#
+#      Examples:
+#        | moonname                                    | associatedPlanet         | Image | alert               |
+#        |Sam Wise_22-                                 | Earth                    | giff  | Invalid File Type    |

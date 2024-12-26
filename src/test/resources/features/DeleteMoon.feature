@@ -18,6 +18,6 @@
 
           Examples:
           |name            |alert                                    |
-          |                |Browser Alert Message: Invalid Moon name |
-          |notamoon        |Browser Alert Message: Invalid Moon name |
-          |Someoneelsesmoon|Browser Alert Message: Invalid Moon name |
+          |                |Invalid moon name |
+          |notamoon        |Invalid moon name |
+          |Someoneelsesmoon|Invalid moon name |

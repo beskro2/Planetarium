@@ -11,9 +11,9 @@
         Then the planet will be deleted from the homepage
       @PR1 @PR4 @SR2
       Scenario Outline: User can not Delete planet with invalid credentials
-        When the user provides a delete planet name <"name">
+        When the user provides a delete planet name "<name>"
         And the user submits the delete planet criteria
-        Then the user should get a delete planet browser alert saying <"alert">
+        Then the user should get a delete planet browser alert saying "<alert>"
 
         Examples:
         |planet name        |Alert                                     |

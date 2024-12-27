@@ -59,10 +59,6 @@ public class AddMoonSteps {
     }
 
 
-
-
-
-
     @And("the user provides associatedPlanet {string}")
     public void theUserProvidesAssociatedPlanet(String associatedPlanet) {
         TestRunner.homePage.enterAssociatedPlanet(associatedPlanet);
@@ -76,6 +72,7 @@ public class AddMoonSteps {
         Alert alert = TestRunner.driver.switchTo().alert();
         Assert.assertEquals(expectedMessage, alert.getText());
         alert.accept();
+
     }
 
 

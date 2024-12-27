@@ -25,8 +25,8 @@
       | gandalffrodosamlegolisegimliborimirearigorn | 1                        |       | Invalid moon name    |
       |                                             | 1                        |       | Invalid moon name    |
       | Saurumon#@!                                 | 1                        |       | Invalid moon name    |
-      | Luna                                        | 1                        |       | invalid moon name    |
-      | Luna                                         | 2                        |       | invalid moon name    |
+      | Luna                                        | 1                        |       | Invalid moon name    |
+      | Luna                                        | 2                        |       | Invalid moon name    |
       | Sam Wise_22-                                | 3000000                  |       | Invalid planet id    |
       | Sam Wise_22-                                |                          |       | Invalid planet id    |
 #
